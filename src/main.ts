@@ -12,7 +12,7 @@ async function start() {
     const PORT = process.env.PORT || 5000;
     const app = await NestFactory.create(AppModule)
     // app.useStaticAssets(path.resolve(__dirname, '..', 'static'))
-    app.use(express.static(join(__dirname, '../static')))
+    app.use(express.static(join(__dirname, '..', 'static')))
     app.enableCors()
     const config = new DocumentBuilder()
     .setTitle('Buildings API')

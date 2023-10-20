@@ -10,11 +10,11 @@ export class FilesService {
         try {
             const fileName = uuid.v4() + '.jpg';
             const filePath = path.resolve(__dirname, '..', 'static', fileName)
-            // if (!fs.existsSync(filePath)) {
-            //     fs.mkdirSync(filePath, {recursive: true})
-            // }
-            // fs.writeFileSync(path.join(filePath, fileName), file.buffer)
-            return filePath
+            if (!fs.existsSync(filePath)) {
+                fs.mkdirSync(filePath, {recursive: true})
+            }
+            fs.writeFileSync(path.join(filePath, fileName), file.buffer)
+            return fileName
         }
         catch (e) {
             throw new HttpException('An error has occured', HttpStatus.INTERNAL_SERVER_ERROR)
