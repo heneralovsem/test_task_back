@@ -3,13 +3,14 @@ import { AppModule } from "./app.module";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { join } from "path";
+import * as path from 'path'
 
 
 
 async function start() {
     const PORT = process.env.PORT || 5000;
-    const app = await NestFactory.create(AppModule)
-    // app.useStaticAssets(join(__dirname, '..', 'static'))
+    const app = await NestFactory.create<NestExpressApplication>(AppModule)
+    app.useStaticAssets(path.resolve(__dirname, '..', 'static'))
     app.enableCors()
     const config = new DocumentBuilder()
     .setTitle('Buildings API')
