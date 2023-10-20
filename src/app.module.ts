@@ -23,7 +23,7 @@ import { join } from 'path';
             envFilePath: `.${process.env.NODE_ENV}.env`
         }),
         ServeStaticModule.forRoot({
-            rootPath: join(__dirname, '/src/static')
+            rootPath: join(__dirname, '/dist/static')
         }),
         SequelizeModule.forRoot({
             dialect: 'postgres',
