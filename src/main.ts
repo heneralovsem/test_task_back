@@ -8,8 +8,8 @@ import { join } from "path";
 
 async function start() {
     const PORT = process.env.PORT || 5000;
-    const app = await NestFactory.create<NestExpressApplication>(AppModule)
-    app.useStaticAssets(join(__dirname, '..', 'static'))
+    const app = await NestFactory.create(AppModule)
+    // app.useStaticAssets(join(__dirname, '..', 'static'))
     app.enableCors()
     const config = new DocumentBuilder()
     .setTitle('Buildings API')
